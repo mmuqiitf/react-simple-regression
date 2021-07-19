@@ -5,7 +5,6 @@ import { orderBy } from 'lodash';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, Card, Container, Col, Row, Tab, Tabs, Image } from 'react-bootstrap';
-// import datasets from "./datasets/produksi_padi";
 import datasets from "./datasets/rainfall_uk";
 import './styles.css';
 import logo from './logo.svg';
@@ -86,8 +85,6 @@ function App() {
     setPredict(predict)
   }
 
-
-
   return (
     <div className="App">
       <Container className="px-4 pt-5 my-5 text-center border-bottom">
@@ -139,6 +136,7 @@ function App() {
                 <h1>Model Regresi</h1>
                 <p>Model regresi yang di dapat dari datasets adalah : </p>
                 <p>{regression.model_formula()}</p>
+                <p>Di mana x adalah rentang dari [{Math.min.apply(Math, datasets.map(function (data) { return data.x; }))}, {Math.max.apply(Math, datasets.map(function (data) { return data.x; }))}]</p>
                 <Row className="d-flex justify-content-center">
                   <Col sm={8}>
                     <Form onSubmit={handleSubmit}>
